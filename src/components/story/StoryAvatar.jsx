@@ -96,7 +96,7 @@ export default function StoryAvatar() {
               <DialogTrigger>
                 <Avatar className="w-20 h-20">
                   <AvatarImage src={userStories.user.profileImage} />
-                  <AvatarFallback>CN</AvatarFallback>
+                  <AvatarFallback>{userStories.user.name.slice(0,2).toUpperCase()}</AvatarFallback>
                 </Avatar>
               </DialogTrigger>
               <DialogContent>
