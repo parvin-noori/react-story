@@ -74,3 +74,9 @@
       @apply bg-background text-foreground;
     }
   }
+  .mySwiper2{
+    width: 100%;
+  }
+ .mySwiper2 .swiper-slide{
+    width: 100%!important;
+  }

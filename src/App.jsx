@@ -1,9 +1,11 @@
-import StoryAvatar from "./components/story/StoryAvatar";
+import Story from "./components/story/Story";
 
 function App() {
-  return <div className="container">
-    <StoryAvatar/>
-  </div>;
+  return (
+    <div className="container">
+      <Story />
+    </div>
+  );
 }
 
 export default App;
