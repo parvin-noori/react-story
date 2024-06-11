@@ -7,6 +7,7 @@ export default function NestedDialogSwiper({
   data,
   setIsDialogOpen,
   selectedIndex,
+  setEndSlide
 }) {
   const swiperRef = useRef(null);
   const [endSwiper, setEndSwiper] = useState(false);
@@ -35,6 +36,7 @@ export default function NestedDialogSwiper({
                 swiperRef={swiperRef}
                 endSwiper={endSwiper}
                 setIsDialogOpen={setIsDialogOpen}
+                setEndSlide={setEndSlide}
               />
             ) : (
               <img src={story.stories[0].url} />

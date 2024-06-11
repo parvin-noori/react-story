@@ -7,12 +7,14 @@ export default function AvatarSwiper({
   data,
   setIsDialogOpen,
   setSelectedIndex,
+  endSlide,
 }) {
   const swiperRef = useRef(null);
   const avatarIndex = () => {
     setIsDialogOpen(true);
     setSelectedIndex(swiperRef.current.clickedIndex);
   };
+
   return (
     <Swiper
       spaceBetween={10}
@@ -41,7 +43,10 @@ export default function AvatarSwiper({
       {data.map((userStories, userIndex) => (
         <SwiperSlide key={userIndex}>
           <div className="justify-center flex">
-            <Avatar className="w-20 h-20 cursor-pointer" onClick={avatarIndex}>
+            <Avatar
+              className={`w-20 h-20 cursor-pointer ${endSlide ? `seen` : ""}`}
+              onClick={avatarIndex}
+            >
               <AvatarImage src={userStories.user.profileImage} />
               <AvatarFallback>
                 {userStories.user.name.slice(0, 2).toUpperCase()}

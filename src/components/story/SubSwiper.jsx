@@ -6,18 +6,21 @@ export default function SubSwiper({
   swiperRef,
   endSwiper,
   setIsDialogOpen,
+  setEndSlide,
 }) {
   const handleNextSlide = () => {
+    setEndSlide(true);
     endSwiper ? setIsDialogOpen(false) : swiperRef.current.slideNext();
   };
   return (
     <Stories
-      style={{ zIndex: "1000000" }}
+      // style={{ zIndex: "1000000" }}
       defaultInterval={1500}
-      width={432}
-      height={368}
+      width="100%"
+      height="100%"
       stories={story.stories}
       onAllStoriesEnd={handleNextSlide}
+      onStoryEnd={console.log()}
       // onStoryStart={handleStoryStart}
     />
   );

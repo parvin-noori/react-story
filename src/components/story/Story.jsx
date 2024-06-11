@@ -1,10 +1,9 @@
 import "swiper/css";
 
-
 // css
 import "swiper/css";
 import "swiper/css/navigation";
-import {data} from '../../storyData'
+import { data } from "../../storyData";
 
 import { useState } from "react";
 
@@ -16,10 +15,10 @@ export default function Story() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(1);
   // const [currentStoryIndex, setCurrentStoryIndex] = useState(null);
-  const handleSlide = () => {
-    setEndSlide(true);
-    // setIsDialogOpen(false);
-  };
+  // const handleSlide = () => {
+  // setEndSlide(true);
+  // setIsDialogOpen(false);
+  // };
   // const handleStoryStart = (index) => {
   //   const currentUserSoty = data[0].stories;
   //   if (index === currentUserSoty - 1) {
@@ -28,12 +27,18 @@ export default function Story() {
   // };
 
   return (
-    <div className={`my-5 ${endSlide ? `end` : ""}`}>
-      <AvatarSwiper data={data} setIsDialogOpen={setIsDialogOpen} setSelectedIndex={setSelectedIndex}/>
+    <div className="my-5">
+      <AvatarSwiper
+        data={data}
+        setIsDialogOpen={setIsDialogOpen}
+        setSelectedIndex={setSelectedIndex}
+        endSlide={endSlide}
+      />
       <Modal
-      selectedIndex={selectedIndex}
+        selectedIndex={selectedIndex}
         isDialogOpen={isDialogOpen}
         data={data}
+        setEndSlide={setEndSlide}
         setIsDialogOpen={setIsDialogOpen}
       />
     </div>
