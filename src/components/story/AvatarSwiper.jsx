@@ -16,7 +16,23 @@ export default function AvatarSwiper({
   return (
     <Swiper
       spaceBetween={10}
-      slidesPerView={3}
+      breakpoints={{
+        0: {
+          slidesPerView: 3,
+        },
+        400: {
+          slidesPerView: 4,
+        },
+        780: {
+          slidesPerView: 8,
+        },
+        998: {
+          slidesPerView: 10,
+        },
+        1200: {
+          slidesPerView: 13,
+        },
+      }}
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => {
         swiperRef.current = swiper;
