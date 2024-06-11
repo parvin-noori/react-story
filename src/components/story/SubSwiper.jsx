@@ -1,9 +1,14 @@
 import Stories from "react-insta-stories";
 import "swiper/css/pagination";
 
-export default function SubSwiper({ story, swiperRef }) {
+export default function SubSwiper({
+  story,
+  swiperRef,
+  endSwiper,
+  setIsDialogOpen,
+}) {
   const handleNextSlide = () => {
-    swiperRef.current.slideNext()
+    endSwiper ? setIsDialogOpen(false) : swiperRef.current.slideNext();
   };
   return (
     <Stories

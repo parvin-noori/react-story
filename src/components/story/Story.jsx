@@ -15,16 +15,16 @@ export default function Story() {
   const [endSlide, setEndSlide] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   // const [currentStoryIndex, setCurrentStoryIndex] = useState(null);
-  const handleSlide = () => {
-    setEndSlide(true);
-    setIsDialogOpen(false);
-  };
-  const handleStoryStart = (index) => {
-    const currentUserSoty = data[0].stories;
-    if (index === currentUserSoty - 1) {
-      setEndSlide(true);
-    }
-  };
+  // const handleSlide = () => {
+  //   setEndSlide(true);
+  //   setIsDialogOpen(false);
+  // };
+  // const handleStoryStart = (index) => {
+  //   const currentUserSoty = data[0].stories;
+  //   if (index === currentUserSoty - 1) {
+  //     setEndSlide(true);
+  //   }
+  // };
 
   return (
     <div className={`my-5 ${endSlide ? `end` : ""}`}>

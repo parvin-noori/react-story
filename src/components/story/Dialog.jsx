@@ -30,7 +30,10 @@ export default function Modal({ data, isDialogOpen, setIsDialogOpen }) {
         <DialogContent>
           <DialogHeader>
             <DialogDescription>
-              <NestedDialogSwiper data={data} />
+              <NestedDialogSwiper
+                data={data}
+                setIsDialogOpen={setIsDialogOpen}
+              />
             </DialogDescription>
           </DialogHeader>
         </DialogContent>
