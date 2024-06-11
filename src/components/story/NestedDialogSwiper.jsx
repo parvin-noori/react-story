@@ -3,20 +3,28 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SubSwiper from "./SubSwiper";
 import { useRef, useState } from "react";
 
-export default function NestedDialogSwiper({ data, setIsDialogOpen }) {
+export default function NestedDialogSwiper({
+  data,
+  setIsDialogOpen,
+  selectedIndex,
+}) {
   const swiperRef = useRef(null);
   const [endSwiper, setEndSwiper] = useState(false);
+
   return (
     <Swiper
       className="mySwiper2"
       onSwiper={(swiper) => {
         swiperRef.current = swiper;
       }}
-      onSlideChange={() =>
-        swiperRef.current.activeIndex === data.length - 1
-          ? setEndSwiper(true)
-          : null
-      }
+      onSlideChange={() => {
+        if (swiperRef.current) {
+          swiperRef.current.activeIndex === data.length - 1
+            ? setEndSwiper(true)
+            : null;
+        }
+      }}
+      initialSlide={selectedIndex}
     >
       {data.map((story, index) => (
         <SwiperSlide key={index}>

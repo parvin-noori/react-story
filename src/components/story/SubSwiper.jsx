@@ -12,6 +12,7 @@ export default function SubSwiper({
   };
   return (
     <Stories
+      style={{ zIndex: "1000000" }}
       defaultInterval={1500}
       width={432}
       height={368}

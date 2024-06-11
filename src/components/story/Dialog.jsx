@@ -6,7 +6,9 @@ import {
 } from "@/components/ui/dialog";
 import NestedDialogSwiper from "./NestedDialogSwiper";
 
-export default function Modal({ data, isDialogOpen, setIsDialogOpen }) {
+export default function Modal({ data, isDialogOpen, setIsDialogOpen,selectedIndex
+  
+ }) {
   return (
     <>
       <Dialog
@@ -33,6 +35,7 @@ export default function Modal({ data, isDialogOpen, setIsDialogOpen }) {
               <NestedDialogSwiper
                 data={data}
                 setIsDialogOpen={setIsDialogOpen}
+                selectedIndex={selectedIndex}
               />
             </DialogDescription>
           </DialogHeader>

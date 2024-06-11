@@ -14,11 +14,12 @@ import Modal from "./Dialog";
 export default function Story() {
   const [endSlide, setEndSlide] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [selectedIndex, setSelectedIndex] = useState(1);
   // const [currentStoryIndex, setCurrentStoryIndex] = useState(null);
-  // const handleSlide = () => {
-  //   setEndSlide(true);
-  //   setIsDialogOpen(false);
-  // };
+  const handleSlide = () => {
+    setEndSlide(true);
+    // setIsDialogOpen(false);
+  };
   // const handleStoryStart = (index) => {
   //   const currentUserSoty = data[0].stories;
   //   if (index === currentUserSoty - 1) {
@@ -28,8 +29,9 @@ export default function Story() {
 
   return (
     <div className={`my-5 ${endSlide ? `end` : ""}`}>
-      <AvatarSwiper data={data} setIsDialogOpen={setIsDialogOpen} />
+      <AvatarSwiper data={data} setIsDialogOpen={setIsDialogOpen} setSelectedIndex={setSelectedIndex}/>
       <Modal
+      selectedIndex={selectedIndex}
         isDialogOpen={isDialogOpen}
         data={data}
         setIsDialogOpen={setIsDialogOpen}
