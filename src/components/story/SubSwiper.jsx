@@ -3,10 +3,7 @@ import "swiper/css/pagination";
 
 export default function SubSwiper({ story, swiperRef }) {
   const handleNextSlide = () => {
-    if (swiperRef.current) {
-      swiperRef.current.slideNext();
-      console.log(swiperRef.current.slideNext());
-    }
+    swiperRef.current.slideNext()
   };
   return (
     <Stories

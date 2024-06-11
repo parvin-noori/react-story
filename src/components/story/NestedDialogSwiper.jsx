@@ -5,19 +5,19 @@ import { useRef } from "react";
 
 export default function NestedDialogSwiper({ data }) {
   const swiperRef = useRef(null);
-
-
   return (
     <Swiper
       className="mySwiper2"
-      ref={swiperRef}
-      onSlideChange={()=>console.log('slide change')}
+      onSlideChange={() => console.log("slide change")}
+      onSwiper={(swiper) => {
+        swiperRef.current = swiper;
+      }}
     >
       {data.map((story, index) => (
         <SwiperSlide key={index}>
           {({ isActive }) =>
             isActive ? (
-              <SubSwiper story={story} swiperRef={swiperRef}/>
+              <SubSwiper story={story}  swiperRef={swiperRef}/>
             ) : (
               <img src={story.stories[0].url} />
             )
