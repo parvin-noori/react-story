@@ -80,3 +80,9 @@
  .mySwiper2 .swiper-slide{
     width: 100%!important;
   }
+  .story-animate::after{
+    animation: pulse-ring 2s infinite;
+  }
+  @keyframes pulse-ring {
+
+  }

@@ -9,8 +9,14 @@ export default function SubSwiper({
   setEndSlide,
 }) {
   const handleNextSlide = () => {
-    setEndSlide(true);
-    // endSwiper ? setIsDialogOpen(false) : swiperRef.current.slideNext();
+    // setEndSlide(true);
+    endSwiper ? setIsDialogOpen(false) : swiperRef.current.slideNext();
+  };
+
+  const handleStoryStart = (currentStoryIndex) => {
+    // console.log("Current story index:", currentStoryIndex);
+    // console.log(story.stories.length - 1);
+    // currentStoryIndex === story.stories.length - 1 && setEndSlide(true);
   };
   return (
     <Stories
@@ -20,8 +26,8 @@ export default function SubSwiper({
       height="100%"
       stories={story.stories}
       onAllStoriesEnd={handleNextSlide}
-      onStoryEnd={console.log()}
-      // onStoryStart={handleStoryStart}
+      // onStoryEnd={console.log()}
+      onStoryStart={handleStoryStart}
     />
   );
 }

@@ -13,7 +13,8 @@ import Modal from "./Dialog";
 export default function Story() {
   const [endSlide, setEndSlide] = useState(false);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(1);
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState()
   // const [currentStoryIndex, setCurrentStoryIndex] = useState(null);
   // const handleSlide = () => {
   // setEndSlide(true);
@@ -33,6 +34,8 @@ export default function Story() {
         setIsDialogOpen={setIsDialogOpen}
         setSelectedIndex={setSelectedIndex}
         endSlide={endSlide}
+        selectedIndex={selectedIndex}
+        activeIndex={activeIndex}
       />
       <Modal
         selectedIndex={selectedIndex}
@@ -40,6 +43,7 @@ export default function Story() {
         data={data}
         setEndSlide={setEndSlide}
         setIsDialogOpen={setIsDialogOpen}
+        setActiveIndex={setActiveIndex}
       />
     </div>
   );

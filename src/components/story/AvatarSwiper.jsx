@@ -8,6 +8,8 @@ export default function AvatarSwiper({
   setIsDialogOpen,
   setSelectedIndex,
   endSlide,
+  selectedIndex,
+  activeIndex,
 }) {
   const swiperRef = useRef(null);
   const avatarIndex = () => {
@@ -35,16 +37,30 @@ export default function AvatarSwiper({
           slidesPerView: 13,
         },
       }}
-      onSlideChange={() => console.log("slide change")}
+      onSlideChange={(swiper) => {
+        console.log("slide change", selectedIndex),
+          console.log(swiperRef.current.currentIndex);
+        swiper.slideTo(activeIndex);
+      }}
       onSwiper={(swiper) => {
         swiperRef.current = swiper;
+        swiper.slideTo(activeIndex);
       }}
     >
       {data.map((userStories, userIndex) => (
         <SwiperSlide key={userIndex}>
-          <div className="justify-center flex">
+          {activeIndex}
+          {swiperRef.current && swiperRef.current.currentIndex}
+          {/* {swiperRef.current && console.log(swiperRef.current.activeIndex)} */}
+          <div
+            className={`justify-center flex items-center story-animate relative w-[5.4rem] h-[5.4rem] before:content-[''] before:rounded-full before:absolute before:w-full before:h-full ${
+              endSlide
+                ? `before:bg-neutral-300 seen`
+                : " before:bg-gradient-to-r before:from-fuchsia-600 before:rotate-[150deg] before:via-red-500 before:to-amber-300"
+            }`}
+          >
             <Avatar
-              className={`w-20 h-20 cursor-pointer ${endSlide ? `seen` : ""}`}
+              className="w-20 h-20  cursor-pointer border-4 border-white"
               onClick={avatarIndex}
             >
               <AvatarImage src={userStories.user.profileImage} />

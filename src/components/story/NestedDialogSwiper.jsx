@@ -8,6 +8,7 @@ export default function NestedDialogSwiper({
   setIsDialogOpen,
   selectedIndex,
   setEndSlide,
+  setActiveIndex,
 }) {
   const swiperRef = useRef(null);
   const [endSwiper, setEndSwiper] = useState(false);
@@ -16,14 +17,15 @@ export default function NestedDialogSwiper({
     <Swiper
       style={{ zIndex: "0" }}
       className="mySwiper2"
+      // simulateTouch={true}
       onSwiper={(swiper) => {
         swiperRef.current = swiper;
+        setActiveIndex(swiper.activeIndex);
       }}
-      onSlideChange={() => {
-        if (swiperRef.current) {
-          swiperRef.current.activeIndex === data.length - 1
-            ? setEndSwiper(true)
-            : null;
+      onSlideChange={(swiper) => {
+        if (swiper) {
+          setActiveIndex(swiper.activeIndex);
+          swiper.activeIndex === data.length - 1 ? setEndSwiper(true) : null;
         }
       }}
       initialSlide={selectedIndex}
