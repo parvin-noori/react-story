@@ -10,7 +10,7 @@ export default function SubSwiper({
 }) {
   const handleNextSlide = () => {
     setEndSlide(true);
-    endSwiper ? setIsDialogOpen(false) : swiperRef.current.slideNext();
+    // endSwiper ? setIsDialogOpen(false) : swiperRef.current.slideNext();
   };
   return (
     <Stories

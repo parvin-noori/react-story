@@ -7,13 +7,14 @@ export default function NestedDialogSwiper({
   data,
   setIsDialogOpen,
   selectedIndex,
-  setEndSlide
+  setEndSlide,
 }) {
   const swiperRef = useRef(null);
   const [endSwiper, setEndSwiper] = useState(false);
 
   return (
     <Swiper
+      style={{ zIndex: "0" }}
       className="mySwiper2"
       onSwiper={(swiper) => {
         swiperRef.current = swiper;
