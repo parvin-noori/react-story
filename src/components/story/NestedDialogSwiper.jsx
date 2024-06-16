@@ -4,8 +4,9 @@ import SubSwiper from "./SubSwiper";
 import { useRef, useState } from "react";
 import StoryContext from "@/contexts/StoryContext";
 const { useStory } = StoryContext;
+import { data } from "../../storyData";
 
-export default function NestedDialogSwiper({ data }) {
+export default function NestedDialogSwiper() {
   const { selectedIndex, setActiveIndex, setEndSwiper } = useStory();
   const swiperRef = useRef(null);
 

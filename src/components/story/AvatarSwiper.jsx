@@ -4,8 +4,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import StoryContext from "@/contexts/StoryContext";
 const { useStory } = StoryContext;
+import { data } from "../../storyData";
 
-export default function AvatarSwiper({ data }) {
+export default function AvatarSwiper() {
   const swiperRef = useRef(null);
   const avatarIndex = () => {
     setIsDialogOpen(true);
