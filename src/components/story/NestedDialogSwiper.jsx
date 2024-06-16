@@ -13,7 +13,6 @@ export default function NestedDialogSwiper({ data }) {
     <Swiper
       style={{ zIndex: "0" }}
       className="mySwiper2"
-      // simulateTouch={true}
       onSwiper={(swiper) => {
         swiperRef.current = swiper;
         setActiveIndex(swiper.activeIndex);

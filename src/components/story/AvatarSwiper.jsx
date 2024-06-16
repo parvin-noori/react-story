@@ -6,12 +6,12 @@ import StoryContext from "@/contexts/StoryContext";
 const { useStory } = StoryContext;
 
 export default function AvatarSwiper({ data }) {
-  const { endSlide, setSelectedIndex, setIsDialogOpen } = useStory();
   const swiperRef = useRef(null);
   const avatarIndex = () => {
     setIsDialogOpen(true);
     setSelectedIndex(swiperRef.current.clickedIndex);
   };
+  const { endSlide, setSelectedIndex, setIsDialogOpen } = useStory();
 
   return (
     <Swiper
@@ -33,22 +33,13 @@ export default function AvatarSwiper({ data }) {
           slidesPerView: 13,
         },
       }}
-      onSlideChange={(swiper) => {
-        // console.log("slide change", selectedIndex),
-        //   console.log(swiperRef.current.activeIndex);
-        // swiper.slideTo(activeIndex);
-      }}
+      onSlideChange={(swiper) => {}}
       onSwiper={(swiper) => {
         swiperRef.current = swiper;
-        // swiper.slideTo(activeIndex);
       }}
     >
       {data.map((userStories, userIndex) => (
         <SwiperSlide key={userIndex}>
-          {/* {activeIndex}
-          {userIndex} */}
-          {/* {swiperRef.current && swiperRef.current.currentIndex} */}
-          {/* {swiperRef.current && console.log(swiperRef.current.activeIndex)} */}
           <div
             className={`justify-center flex items-center story-animate relative w-[5.4rem] h-[5.4rem] before:content-[''] before:rounded-full before:absolute before:w-full before:h-full ${
               endSlide
