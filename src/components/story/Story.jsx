@@ -11,10 +11,7 @@ import AvatarSwiper from "./AvatarSwiper";
 import Modal from "./Dialog";
 
 export default function Story() {
-  const [endSlide, setEndSlide] = useState(false);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [activeIndex, setActiveIndex] = useState()
+
   // const [currentStoryIndex, setCurrentStoryIndex] = useState(null);
   // const handleSlide = () => {
   // setEndSlide(true);
@@ -31,19 +28,19 @@ export default function Story() {
     <div className="my-5">
       <AvatarSwiper
         data={data}
-        setIsDialogOpen={setIsDialogOpen}
-        setSelectedIndex={setSelectedIndex}
-        endSlide={endSlide}
-        selectedIndex={selectedIndex}
-        activeIndex={activeIndex}
+        // setIsDialogOpen={setIsDialogOpen}
+        // setSelectedIndex={setSelectedIndex}
+        // endSlide={endSlide}
+        // selectedIndex={selectedIndex}
+        // activeIndex={activeIndex}
       />
       <Modal
-        selectedIndex={selectedIndex}
-        isDialogOpen={isDialogOpen}
+        // selectedIndex={selectedIndex}
+        // isDialogOpen={isDialogOpen}
         data={data}
-        setEndSlide={setEndSlide}
-        setIsDialogOpen={setIsDialogOpen}
-        setActiveIndex={setActiveIndex}
+        // setEndSlide={setEndSlide}
+        // setIsDialogOpen={setIsDialogOpen}
+        // setActiveIndex={setActiveIndex}
       />
     </div>
   );

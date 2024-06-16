@@ -2,16 +2,12 @@ import "swiper/css/navigation";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SubSwiper from "./SubSwiper";
 import { useRef, useState } from "react";
+import StoryContext from "@/contexts/StoryContext";
+const { useStory } = StoryContext;
 
-export default function NestedDialogSwiper({
-  data,
-  setIsDialogOpen,
-  selectedIndex,
-  setEndSlide,
-  setActiveIndex,
-}) {
+export default function NestedDialogSwiper({ data }) {
+  const { selectedIndex, setActiveIndex, setEndSwiper } = useStory();
   const swiperRef = useRef(null);
-  const [endSwiper, setEndSwiper] = useState(false);
 
   return (
     <Swiper
@@ -34,13 +30,7 @@ export default function NestedDialogSwiper({
         <SwiperSlide key={index}>
           {({ isActive }) =>
             isActive ? (
-              <SubSwiper
-                story={story}
-                swiperRef={swiperRef}
-                endSwiper={endSwiper}
-                setIsDialogOpen={setIsDialogOpen}
-                setEndSlide={setEndSlide}
-              />
+              <SubSwiper story={story} swiperRef={swiperRef} />
             ) : (
               <img src={story.stories[0].url} />
             )

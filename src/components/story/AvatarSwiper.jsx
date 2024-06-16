@@ -2,15 +2,11 @@ import React, { useRef } from "react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import StoryContext from "@/contexts/StoryContext";
+const { useStory } = StoryContext;
 
-export default function AvatarSwiper({
-  data,
-  setIsDialogOpen,
-  setSelectedIndex,
-  endSlide,
-  selectedIndex,
-  activeIndex,
-}) {
+export default function AvatarSwiper({ data }) {
+  const { endSlide, setSelectedIndex, setIsDialogOpen } = useStory();
   const swiperRef = useRef(null);
   const avatarIndex = () => {
     setIsDialogOpen(true);
@@ -38,19 +34,20 @@ export default function AvatarSwiper({
         },
       }}
       onSlideChange={(swiper) => {
-        console.log("slide change", selectedIndex),
-          console.log(swiperRef.current.currentIndex);
-        swiper.slideTo(activeIndex);
+        // console.log("slide change", selectedIndex),
+        //   console.log(swiperRef.current.activeIndex);
+        // swiper.slideTo(activeIndex);
       }}
       onSwiper={(swiper) => {
         swiperRef.current = swiper;
-        swiper.slideTo(activeIndex);
+        // swiper.slideTo(activeIndex);
       }}
     >
       {data.map((userStories, userIndex) => (
         <SwiperSlide key={userIndex}>
-          {activeIndex}
-          {swiperRef.current && swiperRef.current.currentIndex}
+          {/* {activeIndex}
+          {userIndex} */}
+          {/* {swiperRef.current && swiperRef.current.currentIndex} */}
           {/* {swiperRef.current && console.log(swiperRef.current.activeIndex)} */}
           <div
             className={`justify-center flex items-center story-animate relative w-[5.4rem] h-[5.4rem] before:content-[''] before:rounded-full before:absolute before:w-full before:h-full ${
